@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 env:
-  ACR_NAME: acrfiaplabnet
+  ACR_NAME: acrfiaplab
   WEBAPP_NAME: api-users
   RESOURCE_GROUP: rg-fiap-lab
   IMAGE_NAME: apiusers
