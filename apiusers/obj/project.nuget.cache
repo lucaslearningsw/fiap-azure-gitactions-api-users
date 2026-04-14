@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "BlSv2F4pHgs=",
+  "success": true,
+  "projectFilePath": "/home/fiap/FIAP-NET10-AZURECLOUD/apiusers/apiusers/apiusers.csproj",
+  "expectedPackageFiles": [
+    "/home/lima/.nuget/packages/microsoft.aspnetcore.openapi/9.0.0/microsoft.aspnetcore.openapi.9.0.0.nupkg.sha512",
+    "/home/lima/.nuget/packages/microsoft.openapi/1.6.17/microsoft.openapi.1.6.17.nupkg.sha512",
+    "/home/lima/.nuget/packages/scalar.aspnetcore/2.0.0/scalar.aspnetcore.2.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
