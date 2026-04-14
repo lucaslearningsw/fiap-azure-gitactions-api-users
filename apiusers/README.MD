@@ -1,5 +1,30 @@
 http://localhost:5008/scalar/v1#tag/apijogos/GET/games
 
+az ad sp create-for-rbac \
+  --name github-deploy-sp \
+  --role contributor \
+  --scopes /subscriptions/2e3f1e6f-fcaa-4109-bc2c-3f7b84538c4d\
+  --sdk-auth
+
+
+output 
+
+
+{
+  "clientId": "",
+  "clientSecret": "",
+  "subscriptionId": "",
+  "tenantId": "",
+  "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
+  "resourceManagerEndpointUrl": "https://management.azure.com/",
+  "activeDirectoryGraphResourceId": "https://graph.windows.net/",
+  "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
+  "galleryEndpointUrl": "https://gallery.azure.com/",
+  "managementEndpointUrl": "https://management.core.windows.net/"
+}
+
+
+
 Testing local http://localhost:{port}/scalar/v1 
 
 docker build -t apijogos .
