@@ -75,6 +75,7 @@ curl -X POST https://apiusers-c3gtcpgse2bfhegk.canadacentral-01.azurewebsites.ne
 APIM 
 
 
+
 1 - Create APIM at azure 
 
 2 - take openai.json from scalar 
