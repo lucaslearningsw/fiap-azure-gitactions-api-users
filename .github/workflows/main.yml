@@ -1,0 +1,51 @@
+name: Build and Deploy API Jogos to Azure
+
+on:
+  push:
+    branches:
+      - main
+
+
+env:
+  ACR_NAME: acrfiaplabnet
+  WEBAPP_NAME: api-users
+  RESOURCE_GROUP: rg-fiap-lab
+  IMAGE_NAME: apiusers
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+
+    # Checkout repo
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    # Login to Azure
+    - name: Azure Login
+      uses: azure/login@v2
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS_PRD }}
+
+    # Login to ACR
+    - name: Login to ACR
+      run: |
+        az acr login --name $ACR_NAME
+    # Build Docker image
+    - name: Build Docker image
+      run: |
+        docker build \
+          -t $ACR_NAME.azurecr.io/$IMAGE_NAME:${{ github.sha }} \
+          ./apijogos
+    # Push Docker image
+    - name: Push Docker image
+      run: |
+        docker push \
+          $ACR_NAME.azurecr.io/$IMAGE_NAME:${{ github.sha }}
+    # Deploy to Azure Web App
+    - name: Deploy to Web App
+      uses: azure/webapps-deploy@v3
+      with:
+        app-name: ${{ env.WEBAPP_NAME }}
+        images: ${{ env.ACR_NAME }}.azurecr.io/${{ env.IMAGE_NAME }}:${{ github.sha }}
